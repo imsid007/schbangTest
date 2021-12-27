@@ -36,26 +36,34 @@ export default function CustomHeader() {
 						<span className="menu-itom">Menu Four</span>
 					</Row>
 				</Col>
-				<Col size="30" style={{ textAlign: "end" }}>
-					<div style={{ textAlign: "end" }}>
-						<div
-							style={{
-								width: "50px",
-								height: "30px",
-								position: "relative",
-								borderRadius: "50%",
-								overflow: "hidden",
-								marginLeft: "100px",
-							}}
-						>
-							<Image
-								layout="fill"
-								objectFit="contain"
-								alt="logo"
-								src="/images/user.png"
-							/>
+				<Col size="30">
+					<Row
+						align="center"
+						justify="center"
+						className="user-name"
+						style={{ color: "#2e266f" }}
+					>
+						<div style={{ display: "block" }}>
+							<div
+								style={{
+									width: "50px",
+									height: "30px",
+									position: "relative",
+									borderRadius: "50%",
+									overflow: "hidden",
+									marginLeft: "100px",
+								}}
+							>
+								<Image
+									layout="fill"
+									objectFit="contain"
+									alt="logo"
+									src="/images/user.png"
+								/>
+							</div>
 						</div>
-					</div>
+						<span>Sid</span>
+					</Row>
 				</Col>
 			</Row>
 		</div>

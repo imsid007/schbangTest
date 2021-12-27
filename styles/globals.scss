@@ -54,12 +54,13 @@ a {
 .menu-itom {
 	color: #2e266f;
 	font-weight: 500;
-	margin-left: 80px;
+	margin-left: 3vw;
 	cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
-	.menu-itom {
-		display: none;
+	.menu-itom,
+	.user-name {
+		display: none !important;
 	}
 }

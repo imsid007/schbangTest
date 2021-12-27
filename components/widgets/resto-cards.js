@@ -22,8 +22,8 @@ export default function RestoCards({ url, name }) {
 						padding: "30px",
 					}}
 				>
-					<div style={{ fontSize: "40px", fontWeight: "600" }}>{name}</div>
-					<div style={{ fontWeight: "300", fontSize: "12px" }}>
+					<div className={styles.resto_name}>{name}</div>
+					<div className={styles.resto_description} style={{}}>
 						we are all about we are all about to the fullest and all content
 						dining out or in!dining out or in!
 					</div>
@@ -33,17 +33,7 @@ export default function RestoCards({ url, name }) {
 								<MdLocationOn /> Main City
 							</Row>
 						</div>
-						<button
-							style={{
-								background: "#fff",
-								padding: "7px 10px",
-								borderColor: "#fff0",
-								color: "#ff2047",
-								fontSize: "15px",
-								fontWeight: "600",
-								borderRadius: "5px",
-							}}
-						>
+						<button className={styles.book_now_btn}>
 							<Row align="center">
 								Book Now{" "}
 								<BsArrowRight style={{ fontSize: "20px", marginLeft: "5px" }} />
