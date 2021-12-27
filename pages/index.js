@@ -1,31 +1,21 @@
-import Head from "next/head";
 import Image from "next/image";
 import MainLayout from "../components/layout/main-layout";
 import Row from "../components/widgets/elements/row";
 import styles from "../styles/modules/home.module.scss";
-import { MdLocationOn } from "react-icons/md";
 import RestoCards from "../components/widgets/resto-cards";
 import { useState } from "react";
 import { RESTO } from "../src/data";
+import PageHead from "../components/head";
+import LocationTag from "../components/location-tag";
 
 export default function Home() {
 	const [restoCount, setRestoCount] = useState(2);
 
 	return (
 		<MainLayout>
-			<div className={styles.location_tag}>
-				<span style={{ fontSize: "30px", marginRight: "5px" }}>
-					{" "}
-					<MdLocationOn />{" "}
-				</span>
-				Hyderabad
-			</div>
 			<div>
-				<Head>
-					<title>Food</title>
-					<meta name="description" content="Food" />
-					<link rel="icon" href="/favicon.ico" />
-				</Head>
+				<LocationTag />
+				<PageHead />
 
 				<Row align="center" className={styles.header_row}>
 					<div className={styles.header_left_column}>
