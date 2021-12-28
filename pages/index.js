@@ -3,7 +3,7 @@ import MainLayout from "../components/layout/main-layout";
 import Row from "../components/widgets/elements/row";
 import styles from "../styles/modules/home.module.scss";
 import RestoCards from "../components/widgets/resto-cards";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { RESTO } from "../src/data";
 import PageHead from "../components/head";
 import LocationTag from "../components/location-tag";
@@ -11,39 +11,41 @@ import Slide1 from "../components/widgets/carousel/slide-1";
 import Slide2 from "../components/widgets/carousel/slide-2";
 import Slide3 from "../components/widgets/carousel/slide-3";
 
+const sliders = [<Slide1 />, <Slide2 />, <Slide3 />];
+
 export default function Home() {
 	const [restoCount, setRestoCount] = useState(2);
-	const [carouselHandler, setCarouselHandler] = useState(0);
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const intervalRef = useRef();
 
-	const handleCarousel = () => {
-		switch (carouselHandler) {
-			case 0: {
-				return <Slide1 />;
-			}
-			case 1: {
-				return <Slide2 />;
-			}
-			case 2: {
-				return <Slide3 />;
-			}
-		}
+	const setSlideView = () => {
+		return sliders[currentSlide];
 	};
 
-	const backSlide = () => {
-		if (carouselHandler == 0) setCarouselHandler(2);
-		else setCarouselHandler(carouselHandler - 1);
+	const prevSlide = () => {
+		if (currentSlide == 0) setCurrentSlide(sliders.length - 1);
+		else setCurrentSlide((prev) => prev - 1);
 	};
 
-	const carouselCounter = () => {
-		if (carouselHandler == 2) setCarouselHandler(0);
-		else setCarouselHandler(carouselHandler + 1);
+	const nextSlide = () => {
+		if (currentSlide >= sliders.length - 1) setCurrentSlide(0);
+		else setCurrentSlide((prev) => prev + 1);
+	};
+
+	const startSliderAutoPlay = () => {
+		intervalRef.current = setInterval(() => {
+			setCurrentSlide((prev) => {
+				return prev >= sliders.length - 1 ? 0 : prev + 1;
+			});
+		}, 5000);
 	};
 
 	useEffect(() => {
-		setTimeout(() => {
-			carouselCounter();
-		}, 5000);
-	});
+		startSliderAutoPlay();
+		return () => {
+			clearInterval(intervalRef);
+		};
+	}, []);
 
 	return (
 		<MainLayout>
@@ -78,7 +80,7 @@ export default function Home() {
 					style={{ height: "100%", position: "relative" }}
 					className={styles.header_right_column}
 				>
-					{handleCarousel()}
+					{setSlideView()}
 					<div className={styles.header_background_wrapper}>
 						<div className={styles.header_background_container}>
 							<Image layout="fill" src="/images/long-dots.svg" alt="dots" />
@@ -87,7 +89,7 @@ export default function Home() {
 
 					<div className={styles.red_column}></div>
 				</div>
-				<div onClick={backSlide} className={styles.left_arrow_wrapper}>
+				<div onClick={prevSlide} className={styles.left_arrow_wrapper}>
 					<div className={styles.left_arrow_container}>
 						<Image
 							layout="fill"
@@ -96,7 +98,7 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-				<div className={styles.right_arrow_wrapper} onClick={carouselCounter}>
+				<div onClick={nextSlide} className={styles.right_arrow_wrapper}>
 					<div className={styles.right_arrow_container}>
 						<Image
 							layout="fill"
@@ -140,7 +142,11 @@ export default function Home() {
 					</div>
 					<div className={styles.resto_card_wrapper}>
 						{RESTO.slice(0, restoCount).map((resto) => (
-							<RestoCards key={Math.random} name={resto.name} url={resto.url} />
+							<RestoCards
+								key={Math.random()}
+								name={resto.name}
+								url={resto.url}
+							/>
 						))}
 						<div
 							className={styles.see_more_container}
