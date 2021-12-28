@@ -145,7 +145,7 @@ export default function Home() {
 						<div
 							className={styles.see_more_container}
 							onClick={() => {
-								setRestoCount(resto.length);
+								setRestoCount(RESTO.length);
 							}}
 						>
 							<Image
