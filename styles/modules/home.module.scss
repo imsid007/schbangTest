@@ -58,6 +58,15 @@
 	height: 100vh;
 }
 
+.header_image_wrapper_slide_2 {
+	position: absolute;
+	top: -5%;
+	z-index: 5;
+	left: 6%;
+	animation-name: example;
+	animation-duration: 4s;
+}
+
 .header_image_wrapper {
 	position: absolute;
 	top: -5%;
@@ -82,6 +91,12 @@
 	position: relative;
 	width: 600px;
 	height: 800px;
+}
+
+.header_image_container_slide_2 {
+	position: relative;
+	width: 550px;
+	height: 700px;
 }
 
 .header_background_wrapper {
@@ -333,7 +348,8 @@
 		height: 80vw;
 	}
 
-	.header_image_wrapper {
+	.header_image_wrapper,
+	.header_image_wrapper_slide_2 {
 		position: relative;
 	}
 
@@ -361,7 +377,8 @@
 		padding: 5px 5px 5px 10px;
 	}
 
-	.header_image_container {
+	.header_image_container,
+	.header_image_container_slide_2 {
 		width: 100vw;
 		height: 100vw;
 		margin: auto;

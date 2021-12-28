@@ -3,13 +3,38 @@ import MainLayout from "../components/layout/main-layout";
 import Row from "../components/widgets/elements/row";
 import styles from "../styles/modules/home.module.scss";
 import RestoCards from "../components/widgets/resto-cards";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RESTO } from "../src/data";
 import PageHead from "../components/head";
 import LocationTag from "../components/location-tag";
+import Slide1 from "../components/widgets/carousel/slide-1";
+import Slide2 from "../components/widgets/carousel/slide-2";
 
 export default function Home() {
 	const [restoCount, setRestoCount] = useState(2);
+	const [carouselHandler, setCarouselHandler] = useState(0);
+
+	const handleCarousel = () => {
+		switch (carouselHandler) {
+			case 0: {
+				return <Slide1 />;
+			}
+			case 1: {
+				return <Slide2 />;
+			}
+		}
+	};
+
+	const carouselCounter = () => {
+		setTimeout(() => {
+			if (carouselHandler == 1) setCarouselHandler(0);
+			else setCarouselHandler(carouselHandler + 1);
+		}, 5000);
+	};
+
+	useEffect(() => {
+		carouselCounter();
+	}, [carouselHandler]);
 
 	return (
 		<MainLayout>
@@ -44,15 +69,7 @@ export default function Home() {
 					style={{ height: "100%", position: "relative" }}
 					className={styles.header_right_column}
 				>
-					<div className={styles.header_image_wrapper}>
-						<div className={styles.header_image_container}>
-							<Image
-								layout="fill"
-								alt="salad-plate"
-								src="/images/salad-plate.svg"
-							/>
-						</div>
-					</div>
+					{handleCarousel()}
 					<div className={styles.header_background_wrapper}>
 						<div className={styles.header_background_container}>
 							<Image layout="fill" src="/images/long-dots.svg" alt="dots" />
