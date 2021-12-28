@@ -329,6 +329,8 @@
 }
 
 .left_arrow_wrapper {
+	z-index: 500;
+
 	position: absolute;
 	bottom: 2%;
 	right: 8%;
@@ -342,6 +344,8 @@
 }
 
 .right_arrow_wrapper {
+	z-index: 500;
+
 	position: absolute;
 	bottom: 2%;
 	right: 2%;
