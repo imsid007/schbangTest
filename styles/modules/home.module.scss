@@ -16,7 +16,7 @@
 }
 
 .title {
-	color: #2e266f;
+	color: $title-color;
 	font-size: 55px;
 	font-weight: 700;
 }
@@ -42,7 +42,7 @@
 .header_submit_btn {
 	height: 50px;
 	border-color: #fff0;
-	background: #ed3839;
+	background: $secondary-color;
 	color: #fff;
 	width: 150px;
 	font-size: 18px;
@@ -109,7 +109,7 @@
 
 .sub_title {
 	border-left: 10px solid $secondary-color;
-	color: #2e266f;
+	color: $title-color;
 	font-size: 35px;
 	font-weight: 600;
 	padding-left: 40px;
@@ -193,6 +193,7 @@
 	border-radius: 10px;
 	overflow: hidden;
 }
+
 .rest_card:hover {
 	background-size: 110% auto;
 	transition: 0.6s;
@@ -200,7 +201,7 @@
 
 .location_tag {
 	position: fixed;
-	background: #ed3839;
+	background: $secondary-color;
 	border-radius: 0 2rem 2rem 0;
 	top: 70%;
 	left: 0;
@@ -230,7 +231,7 @@
 }
 
 .footer_title {
-	color: #2e266f;
+	color: $title-color;
 	font-size: 35px;
 	font-weight: 600;
 }
@@ -238,7 +239,7 @@
 .color_head {
 	width: 80px;
 	height: 10px;
-	background: #ed3839;
+	background: $secondary-color;
 	margin-bottom: 30px;
 }
 
@@ -264,11 +265,12 @@
 .footer_submit_btn {
 	height: 50px;
 	border-color: #fff0;
-	background: #ed3839;
+	background: $secondary-color;
 	color: #fff;
 	width: 150px;
 	font-size: 18px;
 }
+
 .left_veggi_wrapper {
 	position: absolute;
 	left: -20%;
@@ -384,6 +386,7 @@
 		width: 80vw;
 		margin: 10vw auto 0vw;
 	}
+
 	.header_left_column_container {
 		padding: 5vw;
 	}
@@ -408,6 +411,7 @@
 	.resto_top_background_wrapper {
 		width: 50vw;
 	}
+
 	.resto_bottom_background_wrapper {
 		display: none;
 	}
@@ -422,14 +426,17 @@
 		width: 30vw;
 		height: 60vw;
 	}
+
 	.right_veggi_wrapper {
 		width: 30vw;
 		height: 80vw;
 		right: -20%;
 	}
+
 	.footer_input_container {
 		width: 80vw;
 	}
+
 	.form_container {
 		height: auto;
 		padding: 5vw 2vw;
@@ -438,6 +445,7 @@
 	.footer_section {
 		min-height: 60vh;
 	}
+
 	.right_veggi_container {
 		height: 60vw;
 		width: 30vw;
