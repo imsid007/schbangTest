@@ -9,6 +9,7 @@ import PageHead from "../components/head";
 import LocationTag from "../components/location-tag";
 import Slide1 from "../components/widgets/carousel/slide-1";
 import Slide2 from "../components/widgets/carousel/slide-2";
+import Slide3 from "../components/widgets/carousel/slide-3";
 
 export default function Home() {
 	const [restoCount, setRestoCount] = useState(2);
@@ -22,19 +23,27 @@ export default function Home() {
 			case 1: {
 				return <Slide2 />;
 			}
+			case 2: {
+				return <Slide3 />;
+			}
 		}
 	};
 
+	const backSlide = () => {
+		if (carouselHandler == 0) setCarouselHandler(2);
+		else setCarouselHandler(carouselHandler - 1);
+	};
+
 	const carouselCounter = () => {
-		setTimeout(() => {
-			if (carouselHandler == 1) setCarouselHandler(0);
-			else setCarouselHandler(carouselHandler + 1);
-		}, 5000);
+		if (carouselHandler == 2) setCarouselHandler(0);
+		else setCarouselHandler(carouselHandler + 1);
 	};
 
 	useEffect(() => {
-		carouselCounter();
-	}, [carouselHandler]);
+		setTimeout(() => {
+			carouselCounter();
+		}, 5000);
+	});
 
 	return (
 		<MainLayout>
@@ -77,6 +86,24 @@ export default function Home() {
 					</div>
 
 					<div className={styles.red_column}></div>
+				</div>
+				<div onClick={backSlide} className={styles.left_arrow_wrapper}>
+					<div className={styles.left_arrow_container}>
+						<Image
+							layout="fill"
+							src="/images/icons/left-arrow.svg"
+							alt="left arrow"
+						/>
+					</div>
+				</div>
+				<div className={styles.right_arrow_wrapper} onClick={carouselCounter}>
+					<div className={styles.right_arrow_container}>
+						<Image
+							layout="fill"
+							src="/images/icons/left-arrow.svg"
+							alt="left arrow"
+						/>
+					</div>
 				</div>
 			</Row>
 			{/* Header section end  */}

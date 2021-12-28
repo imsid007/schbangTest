@@ -60,7 +60,7 @@
 
 .header_image_wrapper_slide_2 {
 	position: absolute;
-	top: -5%;
+	top: 0;
 	z-index: 5;
 	left: 6%;
 	animation-name: example;
@@ -328,6 +328,33 @@
 	width: 400px;
 }
 
+.left_arrow_wrapper {
+	position: absolute;
+	bottom: 2%;
+	right: 8%;
+	cursor: pointer;
+}
+
+.left_arrow_container {
+	position: relative;
+	width: 100px;
+	height: 30px;
+}
+
+.right_arrow_wrapper {
+	position: absolute;
+	bottom: 2%;
+	right: 2%;
+	cursor: pointer;
+	transform: rotate(180deg);
+}
+
+.right_arrow_container {
+	position: relative;
+	width: 100px;
+	height: 30px;
+}
+
 @media screen and (max-width: 600px) {
 	.header_right_column {
 		width: 100%;
@@ -355,6 +382,7 @@
 
 	.header_row {
 		height: auto;
+		overflow: hidden;
 	}
 
 	.header_background_wrapper {
@@ -466,5 +494,16 @@
 	.right_veggi_container {
 		height: 60vw;
 		width: 30vw;
+	}
+
+	.left_arrow_wrapper {
+		position: absolute;
+		bottom: -10%;
+		right: 20%;
+	}
+	.right_arrow_wrapper {
+		position: absolute;
+		bottom: -10%;
+		right: 2%;
 	}
 }
